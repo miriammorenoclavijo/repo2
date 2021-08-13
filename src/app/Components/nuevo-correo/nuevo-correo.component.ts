@@ -1,6 +1,6 @@
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';//lo necesitamos para indicar con el decorador input lo que esperamos recibir del componente padre
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nuevo-correo',
@@ -13,6 +13,8 @@ export class NuevoCorreoComponent implements OnInit {
   submitted = false;
   //definimos la variable que vamos a recibir del padre
   @Input() correo: any;
+  //definimos la variable que mandaremos al padre de tipo event emitter con cualquier evento any
+  @Output() accionRealizada: EventEmitter<any> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) { 
     
@@ -24,7 +26,7 @@ export class NuevoCorreoComponent implements OnInit {
       cuerpo: ['', [Validators.required, Validators.minLength(10)]],
       destinatario: ['', [Validators.required, Validators.email]],
     });
-    
+
     if(this.correo != undefined){
       console.log("A",this.correo);
       this.nuevoCorreo.patchValue({
@@ -56,6 +58,7 @@ onSubmit() {
 onReset() {
     this.submitted = false;
     this.nuevoCorreo.reset();
+    this.accionRealizada.emit();
 }
 
 }
