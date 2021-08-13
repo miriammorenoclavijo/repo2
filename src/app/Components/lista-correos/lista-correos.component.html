@@ -6,7 +6,8 @@
         <th>Titulo</th>
         <th>Responder</th>
     </tr>
-    <tr *ngFor="let correo of correos; index as i;">
+    <ng-container *ngFor="let correo of correos; index as i;">
+    <tr>
         <td>
             <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true disabled> Si
             <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false disabled> No            <div *ngIf="correo.leido">Si</div> 
@@ -17,8 +18,13 @@
         <td>
             <button (click)="clickResponder(correo)">Responder</button>
         </td>
-        <app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo>
     </tr>
+        <tr *ngIf="responder">
+            <app-nuevo-correo [correo]="correoAResponder"></app-nuevo-correo>
+        </tr>
+    
+    </ng-container>
+    
 </table>
 
 <!-- Primero, realizaremos una prueba fuera -->
