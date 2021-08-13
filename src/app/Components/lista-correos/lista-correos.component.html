@@ -21,4 +21,5 @@
 </table>
 
 <!-- Primero, realizaremos una prueba fuera -->
-<app-nuevo-correo *ngIf="responder"></app-nuevo-correo>
+<!--le pasamos la variable correo, definida con @input en el hijo para saber qué es lo que le va a llegar-->
+<app-nuevo-correo *ngIf="responder" correo="{titulo='A'}"></app-nuevo-correo>
