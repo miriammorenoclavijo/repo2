@@ -36,6 +36,8 @@ onSubmit() {
     correo.leido= false;
     correo.emisor= 'correoEmisor1@openWebinar.inv';
 
+    console.log(correo);
+
     alert("Correo Enviado \nEliminamos el formulario");
     this.onReset();
 }
