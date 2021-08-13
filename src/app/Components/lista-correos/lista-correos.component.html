@@ -4,13 +4,21 @@
         <th>Leído</th>
         <th>Emisor</th>
         <th>Titulo</th>
+        <th>Responder</th>
     </tr>
-    <tr *ngFor="let correo of correos">
+    <tr *ngFor="let correo of correos; index as i;">
         <td>
-            <div *ngIf="correo.leido">Si</div> 
-            <div *ngIf="!correo.leido">No</div> 
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true disabled> Si
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false disabled> No            <div *ngIf="correo.leido">Si</div> 
+            
         </td>
         <td>{{correo.emisor}}</td>
         <td>{{correo.titulo}}</td>
+        <td>
+            <button>Responder</button>
+        </td>
     </tr>
 </table>
+
+<!-- Primero, realizaremos una prueba fuera -->
+<app-nuevo-correo></app-nuevo-correo>

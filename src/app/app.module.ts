@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
 import { NuevoCorreoComponent } from './Components/nuevo-correo/nuevo-correo.component';
+import { ListaCorreosComponent } from './Components/lista-correos/lista-correos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NuevoCorreoComponent
+    NuevoCorreoComponent,
+    ListaCorreosComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
