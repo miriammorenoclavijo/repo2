@@ -17,9 +17,10 @@
         <td>
             <button (click)="clickResponder(correo)">Responder</button>
         </td>
+        <app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo>
     </tr>
 </table>
 
 <!-- Primero, realizaremos una prueba fuera -->
 <!--le pasamos la variable correo, definida con @input en el hijo para saber qué es lo que le va a llegar-->
-<app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo>
+<!--app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></!--app-nuevo-correo>-->
