@@ -53,14 +53,18 @@ onSubmit() {
 
     this.onReset();
     
-    this.servicioAvisos.showMenssage("Correo Enviado");
+    this.servicioAvisos.showMenssage(`Correo enviado a ${correo.emisor}`);
 }
 
 onReset() {
-    this.submitted = false;
-    this.nuevoCorreo.reset();
+    
     this.accionRealizada.emit();
     //al cancelar o enviar que ejecuta este método al final emite el evento al padre, que en su método pondrá responder a false para que no se vea el componente hijo
+}
+
+cancel(){
+  this.onReset();
+  this.servicioAvisos.showMenssage("Envio Cancelado");
 }
 
 }
