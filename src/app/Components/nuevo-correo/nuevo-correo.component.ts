@@ -27,6 +27,7 @@ export class NuevoCorreoComponent implements OnInit {
       destinatario: ['', [Validators.required, Validators.email]],
     });
 
+    //si se ha recibido un correo del padre actualiza los campos del formulario con los valores recibidos
     if(this.correo != undefined){
       console.log("A",this.correo);
       this.nuevoCorreo.patchValue({
@@ -59,6 +60,7 @@ onReset() {
     this.submitted = false;
     this.nuevoCorreo.reset();
     this.accionRealizada.emit();
+    //al cancelar o enviar que ejecuta este método al final emite el evento al padre, que en su método pondrá responder a false para que no se vea el componente hijo
 }
 
 }
