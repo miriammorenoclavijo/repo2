@@ -10,8 +10,8 @@ export class LoginService {
   public static readonly SESSION_STORAGE_KEY: string = "usuarioGoogle";
 
   profile: any = undefined;
-  tokenUser!: string;
-  userId!: string;
+  tokenUser: any = undefined;
+  userId: any = undefined;
 
   constructor(private googleAuthService: GoogleAuthService, private ngZone: NgZone) { 
     if(this.isUserSignedIn()){
@@ -26,7 +26,7 @@ export class LoginService {
   }
 
   public getSessionUser(): GoogleUser {
-    let user: string = sessionStorage.getItem(LoginService.SESSION_STORAGE_KEY);
+    let user = sessionStorage.getItem(LoginService.SESSION_STORAGE_KEY);
     if (!user) {
       throw new Error("no token set , authentication required");
     }
@@ -36,8 +36,8 @@ export class LoginService {
   public signIn() {
     this.googleAuthService.getAuth().subscribe((auth) => {
       auth.signIn().then(
-        res => this.signInSuccessHandler(res),
-        err => this.signInErrorHandler(err));
+        (        res: GoogleUser) => this.signInSuccessHandler(res),
+        (        err: any) => this.signInErrorHandler(err));
     });
   }
 
@@ -68,7 +68,7 @@ export class LoginService {
     });
   }
 
-  private signInErrorHandler(err) {
+  private signInErrorHandler(err: any) {
     console.warn(err);
   }
 } 
