@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AvisosService } from 'src/app/Services/avisos.service';
 
 @Component({
   selector: 'app-avisos',
@@ -7,33 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvisosComponent implements OnInit {
 
-  mensaje: string;
-  visible: boolean;
+  constructor(public servicioAvisos: AvisosService) {}
 
-  constructor() { 
-    this.mensaje = "Correo enviado";
-    this.visible = false;
-  }
+
 
   ngOnInit(): void {
-    this.showMenssage('Correo Enviado');
+    
   }
 
-  showMenssage(mensaje: string){
-    this.mensaje = mensaje;
-    this.visible = true;
-    this.waitToHide();
-  }
-
-  hideMenssage(){
-    this.visible = false;
-    this.mensaje = '';
-  }
-
-  waitToHide(){
-    setTimeout(() => {
-      this.hideMenssage();
-    }, 2000);
-  }
-
+  
 }
