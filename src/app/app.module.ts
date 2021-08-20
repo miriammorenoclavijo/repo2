@@ -8,7 +8,7 @@ import { NuevoCorreoComponent } from './Components/nuevo-correo/nuevo-correo.com
 import { ListaCorreosComponent } from './Components/lista-correos/lista-correos.component';
 import { AvisosComponent } from './Components/avisos/avisos.component';
 import { CorreosRecibidosComponent } from './Views/correos-recibidos/correos-recibidos/correos-recibidos.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './Components/login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import {
